@@ -16,7 +16,7 @@ module.exports = (app, context) => {
   app.get('/', (req, res) => {
     const renderModel = getRenderModel(req);
 
-    res.renderView('./index.ejs', renderModel);
+    res.renderView('index.ejs', renderModel);
   });
 
   function getRenderModel(req) {
