@@ -12,10 +12,11 @@ module.exports = (app, context) => {
   app.use(wixExpressCsrf());
   app.use(wixExpressRequireHttps);
 
-  app.get('/', (req, res) => Promise.resolve()
+  app.get('/', context.hadron.middleware(), (req, res) => Promise.resolve()
     .then(() => wixExpressRenderingModel.generate(req, config))
     .then(renderModel => {
-      const templatePath = path.join(config.clientTopology.staticsBaseFilePath, 'index.ejs');
+      //const templatePath = path.join(config.clientTopology.staticsBaseFilePath, 'index.ejs');
+      const templatePath = path.join(res.locals.hadron.staticLocalPath('com.wixpress.no-hadron-app', config.clientTopology.staticsBaseFilePath), 'index.ejs');
       const appModel = {
         title: 'No Hadron App',
       };
