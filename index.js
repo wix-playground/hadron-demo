@@ -6,7 +6,7 @@ const hadron = require('wix-bootstrap-hadron');
 // required - list the artifacts you want hadron to manage for you
 const opts = {
   staticArtifacts: [{
-    artifactId: 'com.wixpress.fed.no-hadron-app'
+    artifactId: 'com.wixpress.no-hadron-app'
   }]
 };
 

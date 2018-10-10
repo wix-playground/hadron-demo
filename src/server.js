@@ -16,7 +16,7 @@ module.exports = (app, context) => {
     .then(() => wixExpressRenderingModel.generate(req, config))
     .then(renderModel => {
       //const templatePath = path.join(config.clientTopology.staticsBaseFilePath, 'index.ejs');
-      const templatePath = path.join(res.locals.hadron.staticLocalPath('com.wixpress.fed.no-hadron-app', config.clientTopology.staticsBaseFilePath), 'index.ejs');
+      const templatePath = path.join(res.locals.hadron.staticLocalPath('com.wixpress.no-hadron-app', config.clientTopology.staticsBaseFilePath), 'index.ejs');
       const appModel = {
         title: 'No Hadron App',
       };
