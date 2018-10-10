@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+    <head>
+        <title>
+            <%= title %>
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+        <link rel="stylesheet" href="<%= staticsBaseUrl %>app<% if (!debug) { %>.min<% } %>.css">
+    </head>
+
+    <body>
+        <div id="root">Yo!</div>
+        <script>
+          window.__BASEURL__ = '<%= basename %>';
+          window.__LOCALE__ = '<%= locale %>';
+          window.__STATICS_BASE_URL__ = '<%= staticsBaseUrl %>';
+        </script>
+        <script>
+          var data = {
+            basename: '<%= basename %>',
+            locale: '<%= locale %>',
+            staticBaseUrl: '<%= staticsBaseUrl %>'
+          };
+        </script>
+        <script src="<%= staticsBaseUrl %>app.bundle<% if (!debug) { %>.min<% } %>.js"></script>
+    </body>
+
+</html>

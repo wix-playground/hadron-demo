@@ -1,0 +1,51 @@
+{
+  "name": "no-hadron-app",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "author": {
+    "name": "technotronic12",
+    "email": "elip@wix.com"
+  },
+  "scripts": {
+    "start": "yoshi start",
+    "pretest": "yoshi build",
+    "test": "yoshi test",
+    "release": "yoshi release"
+  },
+  "devDependencies": {
+    "axios": "~0.16.0",
+    "chai": "~4.1.0",
+    "husky": "~0.14.0",
+    "lint-staged": "^7.2.2",
+    "wix-bootstrap-testkit": "latest",
+    "wix-config-emitter": "latest",
+    "wix-rpc-testkit": "latest",
+    "yoshi": "^3.0.0"
+  },
+  "dependencies": {
+    "ejs": "~2.5.0",
+    "express": "~4.15.0",
+    "regenerator-runtime": "^0.11.0",
+    "wix-bootstrap-ng": "latest",
+    "wix-express-csrf": "latest",
+    "wix-express-rendering-model": "^1.0.787",
+    "wix-express-require-https": "latest",
+    "wix-renderer": "^1.0.929",
+    "wix-run-mode": "^2.0.265"
+  },
+  "lint-staged": {
+    "*.js": "yoshi lint"
+  },
+  "yoshi": {
+    "hmr": "auto"
+  },
+  "babel": {
+    "presets": [
+      "yoshi"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "yoshi"
+  }
+}
