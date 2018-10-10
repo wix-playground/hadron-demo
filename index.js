@@ -10,6 +10,7 @@ const opts = {
   }]
 };
 
+console.log('yo');
 const src = process.env.SRC_PATH || path.join('.', 'dist', 'src');
 const server = path.join(src, 'server');
 
