@@ -1,14 +1,10 @@
-import { expect } from 'chai';
 import axios from 'axios';
-import { beforeAndAfter, app } from '../environment';
 
-describe('API', () => {
-  beforeAndAfter();
-
-  it('should return a valid response', async () => {
+describe('When rendering', () => {
+  it('should display a title', async () => {
     const url = app.getUrl('/');
     const response = await axios.get(url);
 
-    expect(response.data).to.deep.include('Yo!');
+    expect(response.data).toContain('Hadron');
   });
 });
