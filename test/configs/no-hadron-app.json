@@ -2,6 +2,7 @@
   "petriScopes": [],
   "clientTopology": {
     "staticsBaseUrl": "http://localhost:3200/",
-    "staticsBaseFilePath": "./"
+    "staticsBaseFilePath": "./",
+    "staticsDomain": "static.parastorage.com"
   }
 }

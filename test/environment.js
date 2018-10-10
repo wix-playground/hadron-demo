@@ -13,8 +13,8 @@ function emitConfigs() {
     sourceFolders: ['./templates'],
     targetFolder: './target/configs',
   })
-    .val('node', { node_environment: 'dev' })
     .fn('static_url', 'com.wixpress.no-hadron-app', 'http://localhost:3200/')
+    .fn('scripts_domain', 'static.parastorage.com')
     .emit();
 }
 

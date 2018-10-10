@@ -16,8 +16,13 @@ module.exports = (app, context) => {
     .then(() => wixExpressRenderingModel.generate(req, config))
     .then(renderModel => {
       const templatePath = path.join(config.clientTopology.staticsBaseFilePath, 'index.ejs');
+      const { language, basename, debug } = req.aspects['web-context'];
       const appModel = {
-        title: 'No Hadron App',
+        language,
+        basename,
+        debug: debug || process.env.NODE_ENV === 'development',
+        title: 'Wix Full Stack Project Boilerplate',
+        staticsDomain: config.clientTopology.staticsDomain,
       };
 
       wixRenderer.render(templatePath, renderModel, appModel, wixRunMode.isProduction())
