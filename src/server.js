@@ -11,24 +11,25 @@ module.exports = (app, context) => {
 
   app.use(wixExpressCsrf());
   app.use(wixExpressRequireHttps);
+  app.use(context.renderer.middleware());
 
-  app.get('/', (req, res) => Promise.resolve()
-    .then(() => wixExpressRenderingModel.generate(req, config))
-    .then(renderModel => {
-      const templatePath = path.join(config.clientTopology.staticsBaseFilePath, 'index.ejs');
-      const { language, basename, debug } = req.aspects['web-context'];
-      const appModel = {
-        language,
-        basename,
-        debug: debug || process.env.NODE_ENV === 'development',
-        title: 'Wix Full Stack Project Boilerplate',
-        staticsDomain: config.clientTopology.staticsDomain,
-      };
+  app.get('/', (req, res) => {
+    const renderModel = getRenderModel(req);
 
-      wixRenderer.render(templatePath, renderModel, appModel, wixRunMode.isProduction())
-        .then(html => res.send(html));
-    })
-    .catch(error => console.log(error)));
+    res.renderView('./index.ejs', renderModel);
+  });
+
+  function getRenderModel(req) {
+    const { language, basename, debug } = req.aspects['web-context'];
+
+    return {
+      language,
+      basename,
+      debug: debug || process.env.NODE_ENV === 'development',
+      title: 'No Hadron into Yes Hadron',
+      staticsDomain: config.clientTopology.staticsDomain,
+    };
+  }
 
   return app;
 };
