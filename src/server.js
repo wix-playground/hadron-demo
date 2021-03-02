@@ -1,8 +1,8 @@
 import 'regenerator-runtime/runtime';
-import wixExpressCsrf from 'wix-express-csrf';
-import wixExpressRequireHttps from 'wix-express-require-https';
-import wixExpressRenderingModel from 'wix-express-rendering-model';
-import wixRenderer from 'wix-renderer';
+import wixExpressCsrf from '@wix/wix-express-csrf';
+import wixExpressRequireHttps from '@wix/wix-express-require-https';
+import wixExpressRenderingModel from '@wix/wix-express-rendering-model';
+import wixRenderer from '@wix/wix-renderer';
 const wixRunMode = require('wix-run-mode');
 const path = require('path');
 
